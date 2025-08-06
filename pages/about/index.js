@@ -26,18 +26,22 @@ const aboutData = [
             {
                 title: 'Web Development',
                 icons: [
-                    <FaHtml5 />,
-                    <FaCss3 />,
-                    <FaJs />,
-                    <FaReact />,
-                    <SiNextdotjs />,
-                    <SiFramer />,
-                    <FaWordpress />,
+                    <FaHtml5 key="html5" />,
+                    <FaCss3 key="css3" />,
+                    <FaJs key="js" />,
+                    <FaReact key="react" />,
+                    <SiNextdotjs key="next" />,
+                    <SiFramer key="framer" />,
+                    <FaWordpress key="wordpress" />,
                 ],
             },
             {
                 title: 'UI/UX Design',
-                icons: [<FaFigma />, <SiAdobexd />, <SiAdobephotoshop />],
+                icons: [
+                    <FaFigma key="figma" />,
+                    <SiAdobexd key="adobexd" />,
+                    <SiAdobephotoshop key="photoshop" />,
+                ],
             },
         ],
     },
@@ -187,11 +191,11 @@ const About = () => {
                 </div>
                 {/* info */}
                 <motion.div
-                variants={fadeIn('left', 0.4)}
-                initial='hidden'
-                animate='show'
-                exit='hidden'
-                className="flex flex-col w-full xl:max-w-[48%] h-[480px]">
+                    variants={fadeIn('left', 0.4)}
+                    initial='hidden'
+                    animate='show'
+                    exit='hidden'
+                    className="flex flex-col w-full xl:max-w-[48%] h-[480px]">
                     <div className="flex gap-x-4 xl:gap-x-8 mx-auto xl:mx-0 mb-4">
                         {aboutData.map((item, itemIndex) => {
                             return (
@@ -219,7 +223,7 @@ const About = () => {
                                     <div className="flex gap-x-4">
                                         {/* icon */}
                                         {item.icons?.map((icon, itemIndex) => {
-                                            return <div className="text-2xl text-white">{icon}</div>
+                                            return <div className="text-2xl text-white" key={itemIndex}>{icon}</div>
                                         })}
                                     </div>
                                 </div>
